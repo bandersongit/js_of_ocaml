@@ -577,7 +577,6 @@ var caml_output_val = function (){
         writer.size_32 += 1 + (((len + 4) / 4)|0);
         writer.size_64 += 1 + (((len + 8) / 8)|0);
       } else if (typeof v == "string") {
-        if (memo(v)) return;
         var len = caml_ml_string_length(v);
         if (len < 0x20)
           writer.write (8, 0x20 /*cst.PREFIX_SMALL_STRING*/ + len);
